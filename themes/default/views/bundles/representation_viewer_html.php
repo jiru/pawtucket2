@@ -62,8 +62,7 @@
 		$('.jcarousel').on('jcarousel:animate', function (event, carousel) {
 			$(carousel._element.context).find('li').hide().fadeIn(500);
 		}).on('jcarousel:createend jcarousel:animateend', function(event, carousel) {
-			var reps = $('.jcarousel').jcarousel('visible');
-			var current_rep_id = reps[0] ? parseInt(reps[0].id.replace('slide', '')) : null;
+			var current_rep_id = parseInt($('.jcarousel').jcarousel('target').attr('id').replace('slide', ''));
 			var i = caSliderepresentation_ids.indexOf(current_rep_id);
 			
 			if (event.type == 'jcarousel:animateend') {
